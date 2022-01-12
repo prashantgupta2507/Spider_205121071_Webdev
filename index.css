@@ -13,8 +13,17 @@ body{
     height: 100vh;
     background-color: #dfe6e9;
     display: flex;
-    justify-content: center;
+    justify-content:space-around;
     align-items: center;
+}
+
+#clock {
+    font-size: 60px;
+    width: 400px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 20px;
 }
 
 .calendar{
