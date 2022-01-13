@@ -12,7 +12,6 @@ function renderDate(){
     // start day and end date of current month
     let end_date = new Date(current_date.getFullYear(),current_date.getMonth()+1,0).getDate();
     let start_day = new Date(current_date.getFullYear(),current_date.getMonth(),0).getDay();
-    console.log(start_day)
     
     // previous month last date
     let prev_date = new Date(current_date.getFullYear(),current_date.getMonth(),0).getDate();
@@ -28,7 +27,7 @@ function renderDate(){
         if(current_date.getDate()===i && current_date.getMonth()=== new Date().getMonth())
             cells+="<div class='today'>" + i + "</div>";
         else
-            cells+="<div>" + i + "</div>";
+            cells+="<div class='"+ i + display_month + "' onClick=onClickDate(" +"'"+ i + display_month + "')>"  + i + "</div>";
     }
     
     document.getElementsByClassName("days")[0].innerHTML = cells;
@@ -73,3 +72,43 @@ function showTime() {
             .innerHTML = currentTime;
 }
 showTime();
+
+// Todo Task
+
+function openTask(taskname,elmnt,color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(taskname).style.display = "block";
+    elmnt.style.backgroundColor = color;
+  
+  }
+  // Get the element with id="defaultOpen" and click on it
+  document.getElementById("defaultOpen").click();
+
+var task_date;
+
+function onClickDate(str){
+    document.getElementsByClassName("add-task")[0].style.display="flex"
+    task_date = str;
+}
+
+function onAddTask(){
+    let task_title= document.getElementById("task-title").value;
+    let task_description = document.getElementById("task-description").value;
+    if(task_title !== null && task_description !== null && task_title.trim()!=='' && task_description.trim() !== ''){
+        localStorage.setItem(task_date+" "+ current_date.getFullYear(), task_title+ " description:" + task_description);
+        alert("Task Added for date - " + task_date);
+        document.getElementById("task-title").value=""
+        document.getElementById("task-description").value=""
+        document.getElementsByClassName("add-task")[0].style.display="none"
+    }else{
+        alert("Title and Description is Required")
+    }
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,37 +9,74 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Todo Task</title>
 </head>
+
 <body onload="renderDate()">
     <div class="wrapper">
         <div class="clock">
             <div id="clock"></div>
         </div>
+        
         <div class="calendar">
-            <div class="month">
-                <div class="prev" onclick="moveDate('prev')">
-                    <span>&#10094</span>
-                </div>
-                <div class="date-display">
-                    <h2 id="month">June</h2>
-                    <p id="date_str"></p>
-                </div>
-                <div class="next" onclick="moveDate('next')">
-                    <span>&#10095</span>
-                </div>
+            <div class="add-task">
+                <h3 style="color: black;">Add task</h6>
+                <div>
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="task-title">
+                  </div>
+                  <div>
+                    <label for="exampleInputEmail1" class="form-label">Description</label>
+                    <input type="email" class="form-control" id="task-description">
+                  </div>
+                  <div>
+                    <button class="btn btn-primary my-2 add-task-btn" onClick="onAddTask()">Add Task</button>
+                  </div>
             </div>
-            <div class="weekends">
-                <div>Sun</div>
-                <div>Mon</div>
-                <div>Tue</div>
-                <div>Wed</div>
-                <div>Thu</div>
-                <div>Fri</div>
-                <div>Sat</div>
+            <div class="calendar-1">
+                <div class="month">
+                    <div class="prev" onclick="moveDate('prev')">
+                        <span>&#10094</span>
+                    </div>
+                    <div class="date-display">
+                        <h2 id="month">June</h2>
+                        <p id="date_str"></p>
+                    </div>
+                    <div class="next" onclick="moveDate('next')">
+                        <span>&#10095</span>
+                    </div>
+                </div>
+                <div class="weekends">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                </div>
+                <div class="days"></div>
             </div>
-            <div class="days">
+            <div class="calendar-2">
+                <div class="title">
+                    <h2>Tasks</h2>
+                    <div>
+                        <button class="tablink" onclick="openTask('Pending', this, '#FF3333')"
+                            id="defaultOpen">Pending</button>
+                        <button class="tablink" onclick="openTask('Upcoming', this, '#2ecc71')">Upcoming</button>
+                    </div>
 
+                </div>
+                <div id="Pending" class="tabcontent">
+                    <h1>London</h1>
+                    <p>London is the capital city of England.</p>
+                </div>
+
+                <div id="Upcoming" class="tabcontent">
+                    <h1>Paris</h1>
+                    <p>Paris is the capital of France.</p>
+                </div>
             </div>
         </div>
+
     </div>
     <script src="index.js"></script>
 </body>

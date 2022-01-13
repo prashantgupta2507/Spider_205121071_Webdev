@@ -24,12 +24,32 @@ body{
     text-align: center;
     border: 2px solid black;
     border-radius: 20px;
+    margin-bottom: 150px;
 }
 
 .calendar{
-    width: 600px;
+    display: flex;
+    width: 800px;
     background-color: white;
     box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.add-task{
+    width: 400px;
+    background-color: #00CCFF;
+    align-self: flex-start;
+    position: absolute;
+    left: -400px;
+    bottom: 0;
+    display: none;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+}
+
+#task-title, #task-description{
+    border:1px solid #2ecc71;
 }
 
 .month{
@@ -108,3 +128,52 @@ body{
 .prev-date{
     color: #999;
 }
+
+.calendar-2{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #2ecc71;
+    width: 500px;
+    align-items: center;
+}
+
+.title{
+    background-color:#00CCFF;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    font-size: 2vw;
+}
+
+.title h2{
+    align-self: center;
+}
+
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 50%;
+    font-weight:bold;
+}
+
+.tablink:hover {
+    background-color: #777;
+}
+
+.tabcontent {
+    color: white;
+    display: none;
+    width: 100%;
+    text-align: center;
+    height: 100%;
+}
+
+#Pending {background-color:#FF3333;}
+#Upcoming {background-color:#2ecc71;}
