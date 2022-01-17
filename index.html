@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/21e1a7f35e.js" crossorigin="anonymous"></script>
     <title>Todo Task</title>
 </head>
 
@@ -14,22 +15,33 @@
     <div class="wrapper">
         <div class="clock">
             <div id="clock"></div>
+            <div id="clockContainer" style="display: none;">
+                <div id="hour"></div>
+                <div id="minute"></div>
+                <div id="second"></div>
+            </div>
         </div>
-        
+
+
         <div class="calendar">
             <div class="add-task">
                 <h3 style="color: black;">Add task</h6>
-                <div>
-                    <label for="title" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="task-title">
-                  </div>
-                  <div>
-                    <label for="exampleInputEmail1" class="form-label">Description</label>
-                    <input type="email" class="form-control" id="task-description">
-                  </div>
-                  <div>
-                    <button class="btn btn-primary my-2 add-task-btn" onClick="onAddTask()">Add Task</button>
-                  </div>
+                    <div>
+                        <p id="task-date"></p>
+                        <label for="title" class="form-label">Time</label>
+                        <input type="time" class="form-control" id="task-time">
+                    </div>
+                    <div>
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="task-title">
+                    </div>
+                    <div>
+                        <label for="exampleInputEmail1" class="form-label">Description</label>
+                        <input type="email" class="form-control" id="task-description">
+                    </div>
+                    <div>
+                        <button class="btn btn-primary my-2 add-task-btn" onClick="onAddTask()">Add Task</button>
+                    </div>
             </div>
             <div class="calendar-1">
                 <div class="month">
@@ -59,25 +71,29 @@
                 <div class="title">
                     <h2>Tasks</h2>
                     <div>
-                        <button class="tablink" onclick="openTask('Pending', this, '#FF3333')"
-                            id="defaultOpen">Pending</button>
-                        <button class="tablink" onclick="openTask('Upcoming', this, '#2ecc71')">Upcoming</button>
+                        <button class="tablink" onclick="openTask('Today', this, '#2ecc71')">Today's</button>
+                        <button class="tablink" onclick="openTask('Upcoming', this, '#40E0D0')"
+                            id="defaultOpen">Upcoming</button>
+                        <button class="tablink" onclick="openTask('Pending', this, 'slategrey')">Pending</button>
                     </div>
 
                 </div>
-                <div id="Pending" class="tabcontent">
-                    <h1>London</h1>
-                    <p>London is the capital city of England.</p>
+                <div id="Today" class="tabcontent">
+                </div>
+                <div id="Upcoming" class="tabcontent">
                 </div>
 
-                <div id="Upcoming" class="tabcontent">
-                    <h1>Paris</h1>
-                    <p>Paris is the capital of France.</p>
+                <div id="Pending" class="tabcontent">
                 </div>
             </div>
         </div>
 
     </div>
+    <div class="form-switch tooglebtn">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" style="margin-top: -60px;" onclick="showClock()">
+        <label for="btn-description" style="margin-top: -60px;">&nbsp;&nbsp;&nbsp;Toogle Clock</label>
+      </div>
+    
     <script src="index.js"></script>
 </body>
 
